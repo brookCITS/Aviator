@@ -1,0 +1,1 @@
+branchName: 'AVA-${issue.number}'
