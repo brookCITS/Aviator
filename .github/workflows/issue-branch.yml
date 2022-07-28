@@ -1,6 +1,0 @@
-name: Create Issue Branch
-# You may pin to the exact commit or the version.
-# uses: robvanderleek/create-issue-branch@83e252424396af292511477235958adb34bb6423
-uses: robvanderleek/create-issue-branch@v1.5
-
-branchName: 'AVA-${issue.number}'
