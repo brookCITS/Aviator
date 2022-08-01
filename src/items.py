@@ -11,13 +11,10 @@ class Plane(arcade.Sprite):
 
     def update(self):
 
-class MiniBossCloud(arcade.Sprite):
+class MiniBossCloud(Cloud):
 
     def __init__(self, filename, sprite_scaling, x, y, speed):
         super().__init__(filename, sprite_scaling)
         self.x = 0
         self.y = 0
         speed = random.randint(1,10)
-
-    def update(self):
-        self.x += speed
