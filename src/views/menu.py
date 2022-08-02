@@ -34,8 +34,7 @@ class MenuView(arcade.View):
 #DISPLAY
 #------------------
     #GAME TITLE
-        title_label = arcade.gui.UITextArea(text="Aviator", text_color=arcade.color.RED, font_size=60, font_name="FFF Tusj")
-        title_label.fit_content()
+        title_label = arcade.gui.UITextureButton(texture=arcade.load_texture("src/images/AVIATOR LOGO.png"))
 
     #COLOR CHOOSE
         color_choose_text = arcade.gui.UILabel(text='CHOOSE A COLOR')
