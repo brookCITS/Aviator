@@ -18,7 +18,21 @@ class GameView(arcade.View):
         """ Initializer """
         # Call the parent class initializer
         super().__init__()
-        
+        self.options=options
+
+
+        # Game Character
+        self.player=None
+        self.clouds=None
+        self.clouds_miniboss=None
+        self.clouds_boss=None
+        self.birds=None
+
+        self.score=0
+        self.lives=3
+
+        self.set_mouse_invisible(False)
+        self.background=None
 
 
     def on_draw(self):
