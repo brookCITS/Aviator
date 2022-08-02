@@ -5,6 +5,7 @@
 Aviator is a video game created with python's arcade library.
 The objective of the game is for a plane to travel through evil clouds and make it to the airport safe. There will be three levels: beginner, intermediate, advanced
 
+<<<<<<< HEAD
 ### Pre-requsite:
 - you'll need python3.6+
 - you'll also need to install arcade
@@ -17,3 +18,6 @@ pip install arcade
 ```shell
 python3 main.py
 ```
+=======
+Testing branch merging
+>>>>>>> integration
