@@ -7,7 +7,7 @@ SCREEN_HEIGHT = 600
 class MiniBossCloud(Cloud):
 
     def __init__(self, filename, sprite_scaling, speed):
-        super().__init__(filename, sprite_scaling)
+        super().__init__(filename, sprite_scaling, speed)
         self.center_x = 0
         self.center_y = 0
         self.change_x = speed
