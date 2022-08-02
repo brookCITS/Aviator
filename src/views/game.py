@@ -18,19 +18,19 @@ class GameView(arcade.View):
         """ Initializer """
         # Call the parent class initializer
         super().__init__()
-        
+
 
 
     def on_draw(self):
 
 
     def on_key_press(self, symbol,modifier):
- if symbol == arcade.key.RIGHT:
+        if symbol == arcade.key.RIGHT:
             print("Right arrow key is pressed")
             self.player.change_x = 4
-      if symbol == arcade.key.LEFT:
+        if symbol == arcade.key.LEFT:
             print("Left arrow key is pressed")
-            self.player.change_x = -4 
+            self.player.change_x = -4
     def on_key_release(self, key, modifiers):
 
 
