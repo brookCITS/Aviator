@@ -31,6 +31,10 @@ class MenuView(arcade.View):
         self.h_box3.vertical = False
 
 
+#DISPLAYABLES
+#------------------
+
+#GAME TITLE
         title_label = arcade.gui.UITextArea(text="Aviator", text_color=arcade.color.RED, font_size=60, font_name="FFF Tusj")
         title_label.fit_content()
 
@@ -39,10 +43,10 @@ class MenuView(arcade.View):
         color_choose_text.fit_content()
 
     #COLORS
-        green = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture('src/images/green.png'), texture_hovered=arcade.load_texture('src/images/green_c.png'), scale=2)
-        blue = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture('src/images/blue.png'), texture_hovered=arcade.load_texture('src/images/blue_c.png'), scale=2)
-        white = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture('src/images/white.png'), texture_hovered=arcade.load_texture('src/images/white_c.png'), scale=2)
-        yellow = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture('src/images/yellow.png'), texture_hovered=arcade.load_texture('src/images/yellow_c.png'), scale=2)
+        green = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture('src/images/green.png'), texture_hovered=arcade.load_texture('src/images/green_clicked.png'), scale=2)
+        blue = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture('src/images/blue.png'), texture_hovered=arcade.load_texture('src/images/blue_clicked.png'), scale=2)
+        white = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture('src/images/white.png'), texture_hovered=arcade.load_texture('src/images/white_clicked.png'), scale=2)
+        yellow = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture('src/images/yellow.png'), texture_hovered=arcade.load_texture('src/images/yellow_clicked.png'), scale=2)
 
 #LEVEL CHOOSE
         level_choose_text = arcade.gui.UILabel(text='CHOOSE A DIFFICULTY LEVEL')
@@ -65,11 +69,11 @@ class MenuView(arcade.View):
 #COLOR CHOOSE
         self.v_box.add(color_choose_text.with_space_around(bottom=10))
     #COLORS
-        self.h_box.add(green.with_space_around(right=10, bottom=10))
-        self.h_box.add(blue.with_space_around(right=10, bottom=10))
-        self.h_box.add(white.with_space_around(right=10, bottom=10))
-        self.h_box.add(yellow.with_space_around(bottom=10))
-        self.v_box.add(self.h_box)
+        self.h_box.add(green.with_space_around(right=10))
+        self.h_box.add(blue.with_space_around(right=10))
+        self.h_box.add(white.with_space_around(right=10))
+        self.h_box.add(yellow)
+        self.v_box.add(self.h_box.with_space_around(bottom=10))
 
 #LEVEL CHOOSE
         self.v_box.add(level_choose_text.with_space_around(bottom=10, top=30))
