@@ -18,6 +18,7 @@ class GameView(arcade.View):
         """ Initializer """
         # Call the parent class initializer
         super().__init__()
+<<<<<<< HEAD
         self.options=options
 
         self.player=None
@@ -29,6 +30,9 @@ class GameView(arcade.View):
         self.set_mouse_visible(False)
         self.score=0
         self.lives=3
+=======
+
+>>>>>>> AVA-22
 
 
     def on_draw(self):
@@ -43,7 +47,11 @@ class GameView(arcade.View):
             self.player.change_x = -4
             
     def on_key_release(self, key, modifiers):
-
-
+        if symbol == arcade.key.RIGHT:
+            print("Right arrow key is pressed")
+            self.player.change_x = 0
+        if symbol == arcade.key.LEFT:
+            print("Left arrow key is pressed")
+            self.player.change_x = 0 
 
     def update(self, delta_time):
