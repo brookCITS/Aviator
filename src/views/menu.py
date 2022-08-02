@@ -39,16 +39,16 @@ class MenuView(arcade.View):
         color_choose_text.fit_content()
 
     #COLORS
-        green = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture('src/images/green.png'), texture_hovered=arcade.load_texture('src/images/green_c.png'), texture_pressed=arcade.load_texture('src/images/green_c.png'), scale=2)
-        blue = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture('src/images/blue.png'), texture_hovered=arcade.load_texture('src/images/blue_c.png'), texture_pressed= arcade.load_texture('src/images/blue_c.png'), scale=2)
-        white = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture('src/images/white.png'), texture_hovered=arcade.load_texture('src/images/white_c.png'), texture_pressed=arcade.load_texture('src/images/white_c.png'), scale=2)
-        yellow = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture('src/images/yellow.png'), texture_hovered=arcade.load_texture('src/images/yellow_c.png'), texture_pressed=arcade.load_texture('src/images/yellow_c.png'), scale=2)
+        green = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture('src/images/green.png'), texture_hovered=arcade.load_texture('src/images/green_c.png'), scale=2)
+        blue = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture('src/images/blue.png'), texture_hovered=arcade.load_texture('src/images/blue_c.png'), scale=2)
+        white = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture('src/images/white.png'), texture_hovered=arcade.load_texture('src/images/white_c.png'), scale=2)
+        yellow = arcade.gui.UITextureButton(x=0, y=0, texture=arcade.load_texture('src/images/yellow.png'), texture_hovered=arcade.load_texture('src/images/yellow_c.png'), scale=2)
 
 #LEVEL CHOOSE
         level_choose_text = arcade.gui.UILabel(text='CHOOSE A DIFFICULTY LEVEL')
-        level_beginner = arcade.gui.UIFlatButton(text='BEGINNER', width=150)
-        level_intermediate = arcade.gui.UIFlatButton(text='INTERMEDIATE', width=200)
-        level_expert = arcade.gui.UIFlatButton(text='EXPERT', width=150)
+        level_beginner = arcade.gui.UITextureButton(texture=arcade.load_texture('src/images/beginner.png'), texture_hovered=arcade.load_texture('src/images/beginner_clicked.png'), scale=.8)
+        level_intermediate = arcade.gui.UITextureButton(texture=arcade.load_texture('src/images/intermediate.png'), texture_hovered=arcade.load_texture('src/images/intermediate_clicked.png'), scale=.8)
+        level_expert = arcade.gui.UITextureButton(texture=arcade.load_texture('src/images/expert.png'), texture_hovered=arcade.load_texture('src/images/expert_clicked.png'), scale=.8)
 
 #FINAL CHOICE
         color_choice = arcade.gui.UILabel(text="GREEN", width=150, align='center')
@@ -59,8 +59,8 @@ class MenuView(arcade.View):
 
 #CODE THAT ADDS TO DISPLAY
 #-------------------------
-#GAME LOGO
-        self.v_box.add(title_label.with_border(width=0, color=arcade.color.BLACK).with_space_around(bottom=20))
+#GAME TITLE
+        self.v_box.add(title_label.with_border(width=0, color=arcade.color.BLACK).with_space_around(bottom=50))
 
 #COLOR CHOOSE
         self.v_box.add(color_choose_text.with_space_around(bottom=10))
@@ -82,10 +82,10 @@ class MenuView(arcade.View):
 #CHOICES
         self.h_box3.add(color_choice.with_space_around(right=20, bottom=10))
         self.h_box3.add(level_choice.with_space_around(bottom=10))
-        self.v_box.add(self.h_box3)
+        self.v_box.add(self.h_box3.with_space_around(top=50))
 
 #START BUTTON
-        self.v_box.add(start_game)
+        self.v_box.add(start_game.with_space_around(top=10))
 
 #DISPLAY ALL
         self.manager.add(arcade.gui.UIAnchorWidget(
