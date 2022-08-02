@@ -18,17 +18,17 @@ class GameView(arcade.View):
         """ Initializer """
         # Call the parent class initializer
         super().__init__()
-        
+
 
 
     def on_draw(self):
-
+        pass
 
     def on_key_press(self, symbol,modifier):
-
+        pass
 
     def on_key_release(self, key, modifiers):
-
-
+        pass
 
     def update(self, delta_time):
+        pass
