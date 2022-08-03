@@ -1,5 +1,6 @@
 import arcade
 import sys
+<<<<<<< HEAD
 import arcade.gui
 
 class GameOverView(arcade.View):
@@ -76,3 +77,20 @@ class GameOverView(arcade.View):
    600   ,   self   .background)
         self.clear()
         self.manager.draw()
+=======
+#import src.views
+sys.path.insert(0, 'src/views')
+
+import menu
+
+
+class GameOverView(arcade.View):
+    def __init__(self):
+        pass
+
+    def on_show_view(self):
+        pass
+
+    def on_draw(self):
+        pass
+>>>>>>> dcbda3f1c3ab4eb000ec83f84438aeb5e674d4c9
