@@ -26,7 +26,7 @@ class GameView(arcade.View):
         self.clouds_boss=None
         self.birds=None
         self.background=None
-        self.set_mouse_visible(False)
+        self.window.set_mouse_visible(False)
         self.score=0
         self.lives=3
 
