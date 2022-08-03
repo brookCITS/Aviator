@@ -22,25 +22,8 @@ class GameView(arcade.View):
         # Call the parent class initializer
         super().__init__()
         self.options=options
-<<<<<<< HEAD
-
-
-        # Game Character
-        self.player=None
-        self.clouds=None
-        self.clouds_miniboss=None
-        self.clouds_boss=None
-        self.birds=None
-
-        self.score=0
-        self.lives=3
-
-        self.set_mouse_invisible(False)
-        self.background=None
-=======
         filename = "src/images/planes/"+self.options["color"]+".png"
         self.level = options['level']
->>>>>>> integration
 
         self.player=Plane(filename, 0.7)
         self.player.center_x = 111
