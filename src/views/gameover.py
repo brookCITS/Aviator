@@ -1,7 +1,7 @@
 import arcade
 import sys
 import arcade.gui
-import views
+
 class GameOverView(arcade.View):
     """ View to show when game is over """
     def __init__(self, options):
@@ -23,17 +23,26 @@ class GameOverView(arcade.View):
         self.manager.enable()
         # Create a vertical BoxGroup to align buttons
         self.v_box = arcade.gui.UIBoxLayout()
-        title_label = arcade.gui.UITextArea(text="GameOver",font_size=30,font_name="New Times Roman")
+        title_label = arcade.gui.UITextArea(text="Game"+ "Over", font_size=60,font_name="lo-res")
         title_label.fit_content()
-        self.v_box.add(title_label)
+        self.v_box.add(title_label.with_space_around(bottom=33))
 
-        NewGamebutton = arcade.gui.UIFlatButton(text="New Game", width=123, height=44)
+        start_game_texture= arcade.load_texture('../images/NewGame.png')
+        start_game_texture_hovered= arcade.load_texture('../images/NewGameClicked.png')
+
+        NewGamebutton =  arcade.gui.UITextureButton(x=0, y=0, texture=start_game_texture, texture_hovered=start_game_texture_hovered, scale=0.4)
         self.v_box.add(NewGamebutton.with_space_around(bottom=33))
 
-        Continuebutton = arcade.gui.UIFlatButton(text="Continue", width=123, height=44)
+        start_game_texture= arcade.load_texture('../images/Continue.png')
+        start_game_texture_hovered= arcade.load_texture('../images/ContinueClicked.png')
+
+        Continuebutton = arcade.gui.UITextureButton(x=0, y=0, texture=start_game_texture, texture_hovered=start_game_texture_hovered, scale=0.4)
         self.v_box.add(Continuebutton.with_space_around(bottom=33))
 
-        Exitbutton = arcade.gui.UIFlatButton(text="Exit", width=123, height=44)
+        start_game_texture= arcade.load_texture('../images/Exit.png')
+        start_game_texture_hovered= arcade.load_texture('../images/ExitClicked.png')
+
+        Exitbutton = arcade.gui.UITextureButton(x=0, y=0, texture=start_game_texture, texture_hovered=start_game_texture_hovered, scale=0.4)
         self.v_box.add(Exitbutton.with_space_around(bottom=33))
 
         self.manager.add(arcade.gui.UIAnchorWidget(
@@ -45,14 +54,19 @@ class GameOverView(arcade.View):
         @NewGamebutton.event("on_click")
         def on_click_flatbutton(event):
             print("New Game")
-            game_view = MenuView(self.options)
-            self.window.show_view(game_view)
+
+            #game_view = MenuView(self.options)
+            #self.window.show_view(game_view)
 
         @Continuebutton.event("on_click")
         def on_click_flatbutton(event):
             print("Continue")
-            game_view = GameView(self.options)
-            self.window.show_view(game_view)
+            #game_view = GameView(self.options)
+            #self.window.show_view(game_view)
+
+        @Exitbutton.event("on_click")
+        def on_click_flatbutton(event):
+            print("Exit")
 
     def on_draw(self):
         """ Draw this view """
