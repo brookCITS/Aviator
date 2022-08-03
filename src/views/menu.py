@@ -5,6 +5,8 @@ sys.path.insert(0, 'src/views')
 #import views
 import game
 
+
+
 class MenuView(arcade.View):
     def __init__(self):
         super().__init__()
@@ -12,10 +14,12 @@ class MenuView(arcade.View):
             'color': 'green',
             'level': 'beginner'
             }
+        self.background = None
 
     def on_show_view(self):
-        arcade.set_background_color(arcade.csscolor.DARK_SLATE_BLUE)
+        self.background = arcade.load_texture("src/images/Nighttime background.png")
         arcade.set_viewport(0, self.window.width, 0, self.window.height)
+
         self.window.set_mouse_visible(True)
         self.manager = arcade.gui.UIManager()
         self.manager.enable()
@@ -29,7 +33,6 @@ class MenuView(arcade.View):
 
         self.h_box3 = arcade.gui.UIBoxLayout()
         self.h_box3.vertical = False
-
 
 #DISPLAY
 #------------------
@@ -149,4 +152,5 @@ class MenuView(arcade.View):
 
     def on_draw(self):
         self.clear()
+        arcade.draw_lrwh_rectangle_textured(0, 0, 800, 600, self.background)
         self.manager.draw()
