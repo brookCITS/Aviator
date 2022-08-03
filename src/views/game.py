@@ -93,10 +93,10 @@ class GameView(arcade.View):
         self.player.draw()
 
     def on_key_press(self, symbol,modifier):
-        if symbol == arcade.key.RIGHT:
+        if symbol == arcade.key.TOP:
             print("Right arrow key is pressed")
             self.player.change_x = 4
-        if symbol == arcade.key.LEFT:
+        if symbol == arcade.key.BOTTOM:
             print("Left arrow key is pressed")
             self.player.change_x = -4
 
