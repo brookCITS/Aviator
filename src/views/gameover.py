@@ -6,7 +6,14 @@ class GameOverView(arcade.View):
     """ View to show when game is over """
     def __init__(self, options):
         """ This is run once when we switch to this view """
-        super().__init__()
+        super().__init__(700, 600, title = "../images/Night.png")
+        self.background = arcade.load_texture("../images/Night.png")
+
+
+
+
+
+
         self.options = options
         # Reset the viewport, necessary if we have a scrolling game and we need
         # to reset the viewport back to the start so we can see what we draw.
@@ -70,5 +77,14 @@ class GameOverView(arcade.View):
 
     def on_draw(self):
         """ Draw this view """
+
+
+
+
+        arcade.draw_texture_rectangle(350, 300, 700,
+                                      600, self.background)
+
+
+
         self.clear()
         self.manager.draw()
