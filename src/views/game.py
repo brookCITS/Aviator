@@ -21,13 +21,10 @@ class GameView(arcade.View):
         """ Initializer """
         # Call the parent class initializer
         super().__init__()
-<<<<<<< HEAD
 
-=======
         self.options=options
         filename = "src/images/planes/"+self.options["color"]+".png"
         self.level = options['level']
->>>>>>> integration
 
         self.player=Plane(filename, 0.7)
         self.player.center_x = 111
@@ -93,7 +90,6 @@ class GameView(arcade.View):
         self.background_list.append(self.background_sprite_2)
 
     def on_draw(self):
-<<<<<<< HEAD
         pass
 
     def on_key_press(self, symbol,modifier):
@@ -104,7 +100,6 @@ class GameView(arcade.View):
 
     def update(self, delta_time):
         pass
-=======
         """ Draw everything """
         arcade.start_render()
         self.background_list.draw()
@@ -157,4 +152,3 @@ class GameView(arcade.View):
 
 
         self.player.update()
->>>>>>> integration

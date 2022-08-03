@@ -1,24 +1,21 @@
-import random
 import arcade
-import time
-from C import MenuView
 
+# Creating MainGame class
+class MainGame(arcade.Window):
+    def __init__(self):
+        super().__init__(700, 600, title = "../images/Night.png")
 
+        # Loading the background image
+        self.background = arcade.load_texture("../images/Night.png")
 
-#from src.views.menu import MenuView
-# --- Constants ---
-SPRITE_SCALING_PLAYER = 0.5
-SPRITE_SCALING_COIN = 0.2
+    # Creating on_draw() function to draw on the screen
+    def on_draw(self):
+        arcade.start_render()
 
-SCREEN_WIDTH = 600
-SCREEN_HEIGHT = 700
+        # Drawing the background image
+        arcade.draw_texture_rectangle(350, 300, 700,
+                                      600, self.background)
 
-def main():
-    window = arcade.Window(SCREEN_WIDTH, SCREEN_HEIGHT, "Aviator")
-    start_view = MenuView()
-    window.show_view(start_view)
-    arcade.run()
-
-
-if __name__ == "__main__":
-    main()
+# Calling MainGame class
+MainGame()
+arcade.run()
