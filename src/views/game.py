@@ -32,13 +32,24 @@ class GameView(arcade.View):
 
 
     def on_draw(self):
+        pass
 
 
     def on_key_press(self, symbol,modifier):
-
+        if symbol == arcade.key.RIGHT:
+            print("Right arrow key is pressed")
+            self.player.change_x = 4
+        if symbol == arcade.key.LEFT:
+            print("Left arrow key is pressed")
+            self.player.change_x = -4
 
     def on_key_release(self, key, modifiers):
-
-
+        if symbol == arcade.key.RIGHT:
+            print("Right arrow key is pressed")
+            self.player.change_x = 0
+        if symbol == arcade.key.LEFT:
+            print("Left arrow key is pressed")
+            self.player.change_x = 0
 
     def update(self, delta_time):
+        pass
