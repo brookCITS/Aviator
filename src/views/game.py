@@ -26,6 +26,8 @@ class GameView(arcade.View):
         self.level = options['level']
 
         self.player=Plane(filename, 0.7)
+        self.player.center_x = 111
+        self.player.center_y = 233
         self.clouds=arcade.SpriteList()
         self.clouds_miniboss=arcade.SpriteList()
 
@@ -91,21 +93,30 @@ class GameView(arcade.View):
         arcade.start_render()
         self.background_list.draw()
         self.player.draw()
+        # Put the text on the screen.
+        output = f"Score: {self.score}"
+        arcade.draw_text(output, 10, 20, arcade.color.WHITE, 14)
+
+        output = f"Level: {self.options['level']}"
+        arcade.draw_text(output, 200, 20, arcade.color.WHITE, 14)
+
+        output = f"Lives: {self.lives}"
+        arcade.draw_text(output, 400, 20, arcade.color.WHITE, 14)
 
     def on_key_press(self, symbol,modifier):
-        if symbol == arcade.key.TOP:
-            print("Right arrow key is pressed")
+        if symbol == arcade.key.UP:
+            print("top arrow key is pressed")
             self.player.change_y = 4
-        if symbol == arcade.key.BOTTOM:
-            print("Left arrow key is pressed")
+        if symbol == arcade.key.DOWN:
+            print("bottom arrow key is pressed")
             self.player.change_y = -4
 
     def on_key_release(self, key, modifiers):
-        if key == arcade.key.RIGHT:
-            print("Right arrow key is pressed")
+        if key == arcade.key.UP:
+            print("top arrow key is pressed")
             self.player.change_y = 0
-        if key == arcade.key.LEFT:
-            print("Left arrow key is pressed")
+        if key == arcade.key.DOWN:
+            print("bottom arrow key is pressed")
             self.player.change_y = 0
 
 
@@ -114,8 +125,8 @@ class GameView(arcade.View):
     def update(self, delta_time):
         #reset the images when they go past the screen
         for b in self.background_list:
-            print("image width"+str(IMAGE_WIDTH))
-            print("image left"+str(b.left))
+            #print("image width"+str(IMAGE_WIDTH))
+            #print("image left"+str(b.left))
             if b.left <= IMAGE_WIDTH*-1:
                 b.center_x = SCREEN_WIDTH + IMAGE_WIDTH // 2
         self.background_list.update()
