@@ -24,9 +24,13 @@ class Plane(arcade.Sprite):
   
  if self.center._x > SCREEN_WIDTH - self.width / 2:
     self.change_x *= -1
+ if self.center_y > SCREEN_WIDTH - self.width / 2:
+    self.change_y *= -1
    
  if self.center_x < SCREEN_WIDTH - self.width / 2:
    self.change_x *= -1
+ if self.center_y < SCREEN_WIDTH - self.width / 2:
+   self.change_y *= -1
 
 
 class Cloud(arcade.Sprite):
