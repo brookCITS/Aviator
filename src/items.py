@@ -21,6 +21,12 @@ class Plane(arcade.Sprite):
  def update(self):
   self.center_x += self.change_x
   self.center_y += self.change_y
+  
+ if self.center._x > SCREEN_WIDTH - self.width / 2:
+    self.change_x *= -1
+   
+ if self.center_x < SCREEN_WIDTH - self.width / 2:
+   self.change_x *= -1
 
 
 class Cloud(arcade.Sprite):
