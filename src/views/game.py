@@ -7,7 +7,7 @@ import gameover
 from src.items import Plane, Cloud, MiniBossCloud, BossCloud
 
 SPRITE_SCALING_PLAYER = 0.5
-SPRITE_SCALING_COIN = 0.2  
+SPRITE_SCALING_COIN = 0.2
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
@@ -21,7 +21,6 @@ class GameView(arcade.View):
         """ Initializer """
         # Call the parent class initializer
         super().__init__()
-<<<<<<< HEAD
         self.options=options
         filename = "src/images/planes/"+self.options["color"]+".png"
         self.level = options['level']
@@ -29,9 +28,6 @@ class GameView(arcade.View):
         self.player=Plane(filename, 0.7)
         self.clouds=arcade.SpriteList()
         self.clouds_miniboss=arcade.SpriteList()
-=======
-        
->>>>>>> 08f508d56057e54274062539ffea80df0ccff555
 
         self.clouds_boss=None
         self.birds=None
@@ -70,7 +66,6 @@ class GameView(arcade.View):
                 self.clouds_miniboss.append(MiniBossCloud("src/images/boss.png",0.2, speed))
             self.clouds_boss = BossCloud("src/images/boss.png", 0.5, speed)
 
-<<<<<<< HEAD
         #set up the background
         self.background_list = arcade.SpriteList()
 
@@ -100,25 +95,19 @@ class GameView(arcade.View):
     def on_key_press(self, symbol,modifier):
         if symbol == arcade.key.TOP:
             print("Right arrow key is pressed")
-            self.player.change_x = 4
+            self.player.change_y = 4
         if symbol == arcade.key.BOTTOM:
             print("Left arrow key is pressed")
-            self.player.change_x = -4
+            self.player.change_y = -4
 
     def on_key_release(self, key, modifiers):
-        if symbol == arcade.key.RIGHT:
-=======
-    def on_key_press(self, symbol,modifier):
-         if symbol == arcade.key.RIGHT:
->>>>>>> 08f508d56057e54274062539ffea80df0ccff555
+        if key == arcade.key.RIGHT:
             print("Right arrow key is pressed")
-            self.player.change_x = 0
-      if symbol == arcade.key.LEFT:
+            self.player.change_y = 0
+        if key == arcade.key.LEFT:
             print("Left arrow key is pressed")
-            self.player.change_x = 0
+            self.player.change_y = 0
 
-
-    def on_key_release(self, key, modifiers):
 
 
 
