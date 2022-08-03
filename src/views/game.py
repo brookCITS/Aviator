@@ -6,7 +6,7 @@ sys.path.insert(0, 'src/views')
 import gameover
 
 SPRITE_SCALING_PLAYER = 0.5
-SPRITE_SCALING_COIN = 0.2
+SPRITE_SCALING_COIN = 0.2  
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
