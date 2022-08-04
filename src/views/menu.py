@@ -145,9 +145,9 @@ class MenuView(arcade.View):
         @start_game.event("on_click")
         def on_click_flatbutton(event):
             print(self.options)
-            print("Starting Game")
             game_view= game.GameView(self.options)
             self.window.show_view(game_view)
+            print("Starting Game")
 
     def on_draw(self):
         self.clear()
