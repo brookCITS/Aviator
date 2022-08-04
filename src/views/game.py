@@ -161,7 +161,7 @@ class GameView(arcade.View):
     def update(self, delta_time):
         #check if we need to end the game
         if self.lives <= 0:
-            endgame = gameover.GameOverView(self.options)
+            endgame = gameover.GameOverView(self.options, True)
             self.window.show_view(endgame)
 
         #reset the images when they go past the screen
@@ -209,6 +209,14 @@ class GameView(arcade.View):
             if collide:
                 self.lives -= 1
                 print("game over")
+
+            if self.clouds_boss.center_x <= 0:
+                self.player.change_x = 3
+                if self.player.center_x >= SCREEN_WIDTH:
+                    print("congrats, you won!")
+                    endgame = gameover.GameOverView(self.options, False)
+                    self.window.show_view(endgame)
+
             self.clouds_boss.update()
             #boss
 
