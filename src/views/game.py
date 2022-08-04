@@ -18,10 +18,12 @@ SCROLL_SPEED = 2
 class GameView(arcade.View):
 
     def __init__(self, options):
+        self.options = options
+        print(options)
         """ Initializer """
         # Call the parent class initializer
         super().__init__()
-
+        filename = "src/images/planes/"+self.options['color']+".png"
 
         self.player=Plane(filename, 1.4)
         self.player.center_x = 111
@@ -38,7 +40,7 @@ class GameView(arcade.View):
         #set up based on levels
         if self.options["level"] == "beginner":
             count = 1
-            speed = -3
+            speed = -6
             #5 regular clouds (speed slow)
             for cloud in range(5):
                 cloud = Cloud("src/images/cloud.png",0.6, speed)
@@ -52,29 +54,51 @@ class GameView(arcade.View):
             for cloud in range(2):
                 cloud = MiniBossCloud("src/images/boss.png",0.6, speed)
                 self.clouds_miniboss.append(cloud)
-                cloud.center_x *= count
-                count+=1
-            self.clouds_boss = BossCloud("src/images/boss.png", 0.5, speed)
+                cloud.center_x += count
+                print(cloud.center_x)
+                count+=600
+            self.clouds_boss = BossCloud("src/images/boss.png", 0.8, speed)
 
-        elif self.options["level"] == "intermidiate":
-            speed = 4
+        elif self.options["level"] == "intermediate":
+            speed = -7
+            count = 1
             #10 regular clouds (speed slow)
             for cloud in range(10):
-                self.clouds.append(Cloud("src/images/cloud.png",0.2, speed))
+                cloud = Cloud("src/images/cloud.png",0.6, speed)
+                cloud.center_x *= count
+                count+=1
+                self.clouds.append(cloud)
+
+            count = 1
             #2 miniboss
             for cloud in range(4):
-                self.clouds_miniboss.append(MiniBossCloud("src/images/boss.png",0.2, speed))
-            self.clouds_boss = BossCloud("src/images/boss.png", 0.5, speed)
+                cloud = MiniBossCloud("src/images/boss.png",0.6, speed)
+                cloud.center_x += count
+                count+=600
+                self.clouds_miniboss.append(cloud)
 
-        elif self.options["level"] == "advanced":
-            speed = 5
+            self.clouds_boss = BossCloud("src/images/boss.png", 0.8, speed)
+            print(self.clouds_boss)
+
+        elif self.options["level"] == "expert":
+            print("expert level")
+            speed = -8
+            count = 1
             #15 regular clouds (speed slow)
             for cloud in range(15):
-                self.clouds.append(Cloud("src/images/cloud.png",0.2, speed))
+                cloud = Cloud("src/images/cloud.png",0.6, speed)
+                cloud.center_x += count
+                count+=600
+                self.clouds.append(cloud)
             #2 miniboss
+            count = 1
             for cloud in range(6):
-                self.clouds_miniboss.append(MiniBossCloud("src/images/boss.png",0.2, speed))
-            self.clouds_boss = BossCloud("src/images/boss.png", 0.5, speed)
+                cloud = MiniBossCloud("src/images/boss.png",0.6, speed)
+                cloud.center_x += count
+                print(cloud.center_x)
+                count+=600
+                self.clouds_miniboss.append(cloud)
+            self.clouds_boss = BossCloud("src/images/boss.png", 0.8, speed)
 
         #set up the background
         self.background_list = arcade.SpriteList()
@@ -171,29 +195,22 @@ class GameView(arcade.View):
                 self.lives -= 1
                 cloud.remove_from_sprite_lists()
 
-            for cloud in self.clouds:
+            for cloud in self.clouds_miniboss:
+                print(cloud.center_x)
                 if cloud.right < 0:
                     self.score += 1
                     self.clouds_miniboss.pop(self.clouds_miniboss.index(cloud))
 
-            if len(self.clouds) == 0:
+            if len(self.clouds_miniboss) == 0:
                 self.wave = 3
             self.clouds_miniboss.update()
         else:
-            collide = arcade.check_for_collision_with_list(self.player, self.clouds_miniboss)
-            for cloud in collide:
+            collide = arcade.check_for_collision(self.player, self.clouds_boss)
+            if collide:
                 self.lives -= 1
-                cloud.remove_from_sprite_lists()
-
-            for cloud in self.clouds:
-                if cloud.right < 0:
-                    self.score += 1
-                    self.clouds_miniboss.pop(self.clouds_miniboss.index(cloud))
-
-            if len(self.clouds) == 0:
-                self.wave = 3
-            self.clouds_miniboss.update()
+                print("game over")
+            self.clouds_boss.update()
             #boss
 
-        
+
         self.player.update()
