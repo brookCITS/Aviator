@@ -28,7 +28,7 @@ class Cloud(arcade.Sprite):
     def __init__(self, filename, sprite_scaling, speed):
         super().__init__(filename, sprite_scaling)
         self.center_x = SCREEN_WIDTH + self.right
-        self.center_y = random.randint(99, SCREEN_HEIGHT)
+        self.center_y = random.randint(150, SCREEN_HEIGHT-100)
         self.change_x = speed
 
     def update(self):
@@ -39,7 +39,7 @@ class MiniBossCloud(Cloud):
     def __init__(self, filename, sprite_scaling, speed):
         super().__init__(filename, sprite_scaling, speed)
         self.center_x = self.right+SCREEN_WIDTH
-        self.center_y = random.randint(99, SCREEN_HEIGHT)
+        self.center_y = random.randint(150, SCREEN_HEIGHT-100)
         self.change_x = speed
 
 class BossCloud(Cloud):
@@ -47,5 +47,5 @@ class BossCloud(Cloud):
     def __init__(self, filename, sprite_scaling, speed):
         super().__init__(filename, sprite_scaling, speed)
         self.center_x = self.right+SCREEN_WIDTH
-        self.center_y = random.randint(99, SCREEN_HEIGHT)
+        self.center_y = random.randint(150, SCREEN_HEIGHT-100)
         self.change_x = speed
