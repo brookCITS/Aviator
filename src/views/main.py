@@ -1,9 +1,8 @@
 import random
 import arcade
 import time
-from src.views import MenuView
-
-
+import gameover
+from gameover import GameOverView
 
 #from src.views.menu import MenuView
 # --- Constants ---
@@ -15,9 +14,10 @@ SCREEN_HEIGHT = 600
 
 def main():
     window = arcade.Window(SCREEN_WIDTH, SCREEN_HEIGHT, "Aviator")
-    start_view = MenuView()
+    start_view = GameOverView({"Color": "green"})
     window.show_view(start_view)
     arcade.run()
+
 
 
 if __name__ == "__main__":
