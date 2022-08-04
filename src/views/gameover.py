@@ -70,6 +70,7 @@ class GameOverView(arcade.View):
         @Exitbutton.event("on_click")
         def on_click_flatbutton(event):
             print("Exit")
+            arcade.exit()
 
     def on_draw(self):
         """ Draw this view """
