@@ -6,14 +6,7 @@ class GameOverView(arcade.View):
     """ View to show when game is over """
     def __init__(self, options):
         """ This is run once when we switch to this view """
-        super().__init__(700, 600, title = "../images/Night.png")
-        self.background = arcade.load_texture("../images/Night.png")
-
-
-
-
-
-
+        super().__init__()
         self.options = options
         # Reset the viewport, necessary if we have a scrolling game and we need
         # to reset the viewport back to the start so we can see what we draw.
@@ -30,8 +23,7 @@ class GameOverView(arcade.View):
         self.manager.enable()
         # Create a vertical BoxGroup to align buttons
         self.v_box = arcade.gui.UIBoxLayout()
-        title_label = arcade.gui.UITextArea(text="Game"+ "Over", font_size=60,font_name= "Times New Roman")
-        title_label.fit_content()
+        title_label = arcade.gui.UITextureButton(texture= arcade.load_texture('../images/GAME OVER PIXEL.png'), scale=1)
         self.v_box.add(title_label.with_space_around(bottom=33))
 
         start_game_texture= arcade.load_texture('../images/NewGame.png')
@@ -77,14 +69,5 @@ class GameOverView(arcade.View):
 
     def on_draw(self):
         """ Draw this view """
-
-
-
-
-        arcade.draw_texture_rectangle(350, 300, 700,
-                                      600, self.background)
-
-
-
         self.clear()
         self.manager.draw()
