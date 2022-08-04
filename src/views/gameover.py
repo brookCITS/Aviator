@@ -1,6 +1,10 @@
 import arcade
 import sys
 import arcade.gui
+sys.path.insert(0, 'src/views')
+import game
+import menu
+
 
 class GameOverView(arcade.View):
     """ View to show when game is over """
@@ -54,13 +58,13 @@ class GameOverView(arcade.View):
         def on_click_flatbutton(event):
             print("New Game")
 
-            game_view = MenuView(self.options)
+            game_view = menu.MenuView()
             self.window.show_view(game_view)
 
         @Continuebutton.event("on_click")
         def on_click_flatbutton(event):
             print("Continue")
-            game_view = GameView(self.options)
+            game_view = game.GameView(self.options)
             self.window.show_view(game_view)
 
         @Exitbutton.event("on_click")
