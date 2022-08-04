@@ -23,23 +23,23 @@ class GameOverView(arcade.View):
         self.manager.enable()
         # Create a vertical BoxGroup to align buttons
         self.v_box = arcade.gui.UIBoxLayout()
-        title_label = arcade.gui.UITextureButton(texture= arcade.load_texture('../images/GAME OVER PIXEL.png'), scale=1)
+        title_label = arcade.gui.UITextureButton(texture= arcade.load_texture('src/images/GAME OVER PIXEL.png'), scale=1)
         self.v_box.add(title_label.with_space_around(bottom=33))
 
-        start_game_texture= arcade.load_texture('../images/buttons/NewGame.png')
-        start_game_texture_hovered= arcade.load_texture('../images/buttons/NewGameClicked.png')
+        start_game_texture= arcade.load_texture('src/images/buttons/NewGame.png')
+        start_game_texture_hovered= arcade.load_texture('src/images/buttons/NewGameClicked.png')
 
         NewGamebutton =  arcade.gui.UITextureButton(x=0, y=0, texture=start_game_texture, texture_hovered=start_game_texture_hovered, scale=0.4)
         self.v_box.add(NewGamebutton.with_space_around(bottom=33))
 
-        start_game_texture= arcade.load_texture('../images/buttons/Continue.png')
-        start_game_texture_hovered= arcade.load_texture('../images/buttons/ContinueClicked.png')
+        start_game_texture= arcade.load_texture('src/images/buttons/Continue.png')
+        start_game_texture_hovered= arcade.load_texture('src/images/buttons/ContinueClicked.png')
 
         Continuebutton = arcade.gui.UITextureButton(x=0, y=0, texture=start_game_texture, texture_hovered=start_game_texture_hovered, scale=0.4)
         self.v_box.add(Continuebutton.with_space_around(bottom=33))
 
-        start_game_texture= arcade.load_texture('../images/buttons/Exit.png')
-        start_game_texture_hovered= arcade.load_texture('../images/buttons/ExitClicked.png')
+        start_game_texture= arcade.load_texture('src/images/buttons/Exit.png')
+        start_game_texture_hovered= arcade.load_texture('src/images/buttons/ExitClicked.png')
 
         Exitbutton = arcade.gui.UITextureButton(x=0, y=0, texture=start_game_texture, texture_hovered=start_game_texture_hovered, scale=0.4)
         self.v_box.add(Exitbutton.with_space_around(bottom=33))
